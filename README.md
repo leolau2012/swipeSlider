@@ -1,0 +1,2 @@
+# swipeSlider
+借鉴的很好的基于jquery或者zepto的轮播，有时间改写成纯原生的，暂时可以在项目中使用
