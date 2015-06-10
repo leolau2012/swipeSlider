@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+	<meta charset="UTF-8">
+	<title>自适应宽度手机轮播</title>
+	<meta name="viewport" content="width=device-width,user-scalable=0,initial-scale=1">
+	<style type="text/css">
+* {
+	margin: 0;
+	padding: 0;    /* 防止点击闪烁 */
+	-webkit-tap-highlight-color: rgba(0,0,0,0);
+	/* 缩放网页，文字大小不变 */
+	-webkit-text-size-adjust: none;
+}
+h1 {
+	font-size: 16px;
+
+}
+h2 {
+	font-size: 14px;
+}
+.slide {
+	position: relative;
+	max-width: 640px;
+	overflow: hidden;
+	margin: 0px auto;
+}
+.slide ul{
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+}
+.slide:after{
+    content: '';
+    display: block;
+    width: 100%;
+    padding-top: 30%;
+}
+.slide li{
+    list-style: none;
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+}
+.slide li img{
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    border: none;
+}
+.slide .dot{
+    position: absolute;
+    right: 10px;
+    bottom: 10px;
+    font-size: 0;
+}
+.slide .dot span{
+    display: inline-block;
+    width: 5px;
+    height: 5px;
+    margin-left: 5px;
+    border: 1px solid #fff;
+    border-radius: 50%;
+}
+.slide .dot .cur{
+    background-color: #fff;
+}
+</style>
+	</head>
+	<body>
+    <div class="slide" id="slide3">
+        <ul>
+            <li> <a href="#"> <img src="images/1.jpg" alt=""> </a> </li>
+            <li> <a href="#"> <img src="images/2.jpg" alt=""> </a> </li>
+            <li> <a href="#"> <img src="images/3.jpg" alt=""> </a> </li>
+   
+        </ul>
+        <div class="dot"> <span class="cur"></span> <span></span> <span></span>  </div>
+    </div>
+    <script src="js/zepto.min.js"></script>
+    <script src="js/swipeSlide.js"></script>
+    <script>
+    $(function(){
+       
+        $('#slide3').swipeSlide({
+            speed : 3000
+        },function(i){
+            $('.dot').children().eq(i).addClass('cur').siblings().removeClass('cur');
+        });
+    });
+</script>
+</body>
+</html>
